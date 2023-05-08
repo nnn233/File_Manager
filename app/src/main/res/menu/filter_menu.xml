@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/any"
+        android:title="@string/anyExtension"/>
+
+    <item
+        android:id="@+id/jpg"
+        android:title="@string/jpgExtension"/>
+
+    <item
+        android:id="@+id/docx"
+        android:title="@string/docExtension"/>
+
+    <item
+        android:id="@+id/mp3"
+        android:title="@string/mp3Extension"/>
+
+    <item
+        android:id="@+id/pdf"
+        android:title="@string/pdfExtension"/>
+
+    <item
+        android:id="@+id/png"
+        android:title="@string/pngExtension"/>
+
+    <item
+        android:id="@+id/txt"
+        android:title="@string/txtExtension"/>
+
+    <item
+        android:id="@+id/zip"
+        android:title="@string/zipExtension"/>
+
+    <item
+        android:id="@+id/svg"
+        android:title="@string/svgExtension"/>
+</menu>

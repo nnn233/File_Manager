@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">FileManager</string>
+    <string name="main_title">Мои файлы</string>
+    <string name="null_files">Нет доступных файлов для просмотра</string>
+    <string name="anyExtension">Любой</string>
+    <string name="jpgExtension">JPG</string>
+    <string name="docExtension">DOCX</string>
+    <string name="mp3Extension">MP3</string>
+    <string name="pdfExtension">PDF</string>
+    <string name="pngExtension">PNG</string>
+    <string name="txtExtension">TXT</string>
+    <string name="zipExtension">ZIP</string>
+    <string name="svgExtension">SVG</string>
+    <string name="openFile">Открыть</string>
+    <string name="shareFile">Поделиться</string>
+    <string name="defaultSort">По умолчанию</string>
+    <string name="sizeAsc">По размеру (по возрастанию)</string>
+    <string name="sizeDesc">По размеру (по убыванию)</string>
+    <string name="DateDesc">По дате создания (сначала новые)</string>
+    <string name="DateAsc">По дате создания (сначала старые)</string>
+    <string name="sortTitle">Сортировка</string>
+    <string name="filterTitle">Фильтр</string>
+    <string name="apply">Применить</string>
+</resources>
