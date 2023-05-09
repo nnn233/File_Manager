@@ -69,11 +69,10 @@ public class MainActivity extends AppCompatActivity {
         checkPermission(STORAGE_PERMISSION_CODE);
         if (isPermissionGiven) {
             getFiles();
-            showRecyclerViews(filesAll);
+            pathTextView=findViewById(R.id.path);
+            pathTextView.setText(path.replace(MAIN_DIRECTORY, ""));
         }
-
-        pathTextView=findViewById(R.id.path);
-        pathTextView.setText(path.replace(MAIN_DIRECTORY, ""));
+        showRecyclerViews(filesAll);
 
         sortButton=findViewById(R.id.sort_button);
         sortButton.setOnClickListener(v -> showPopupMenuForSorting());
@@ -88,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
             currentFiles=filesAll=fileHelper.convertToUserFiles(filesProvider.getFilesFromChosenDirectory(MAIN_DIRECTORY));
             path=MAIN_DIRECTORY;
             pathTextView.setText("");
+            sortText.setText(R.string.defaultSort);
+            filterText.setText(R.string.anyExtension);
             showRecyclerViews(currentFiles);
         });
 
@@ -154,10 +155,7 @@ public class MainActivity extends AppCompatActivity {
 
    private void checkPermission(int requestCode){
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
-            if (!ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.READ_EXTERNAL_STORAGE))
-                buildErrorDialog();
-            else
-                ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE}, requestCode);
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE}, requestCode);
         else
             isPermissionGiven=true;
     }
@@ -168,13 +166,16 @@ public class MainActivity extends AppCompatActivity {
                                            @NonNull int[] grantResults)
     {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 isPermissionGiven=true;
+                getFiles();
+                showRecyclerViews(filesAll);
             }
-            else {
-                Toast.makeText(MainActivity.this, "Без этого разрешения приложение не сможет отобразить файлы", Toast.LENGTH_SHORT).show();
-            }
+            else
+                if(!ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.READ_EXTERNAL_STORAGE))
+                    buildErrorDialog();
+                else
+                    Toast.makeText(MainActivity.this, "Без этого разрешения приложение не сможет отобразить файлы", Toast.LENGTH_SHORT).show();
 
     }
 
