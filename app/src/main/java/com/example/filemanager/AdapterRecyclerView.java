@@ -21,6 +21,9 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
 
     FileService fileService;
 
+    public AdapterRecyclerView() {
+    }
+
     public AdapterRecyclerView(Context context, ArrayList<UserFile> files) {
         this.context = context;
         this.files = files;

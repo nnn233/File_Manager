@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         filesProvider=new FilesProvider();
         fileHelper=new FileHelper();
         md5Service=new MD5Service(MainActivity.this);
+        adapter=new AdapterRecyclerView();
 
         filesNotFound=findViewById(R.id.text_null_files);
         recyclerView=findViewById(R.id.files);
@@ -281,6 +282,7 @@ public class MainActivity extends AppCompatActivity {
                             currentFiles=filesAll;
                             filterText.setText(R.string.anyExtension);
                             showRecyclerViews(currentFiles);
+                            sortText.setText(R.string.defaultSort);
                             break;
                     }
                     return true;
